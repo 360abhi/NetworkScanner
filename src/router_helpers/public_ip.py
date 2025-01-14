@@ -11,6 +11,7 @@ def get_public_ip():
         return response.json().get("ip","Unable to fetch the IP...")
     except requests.RequestException as e:
         return f"Error fetching public IP: {e}"
-    
-print("Fetching Network Details......\n")
-print(f"public ip : {get_public_ip()}")
+
+if __name__ == "__main__":
+    print("Fetching Network Details......\n")
+    print(f"public ip : {get_public_ip()}")

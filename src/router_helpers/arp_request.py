@@ -1,6 +1,6 @@
 from scapy.all import ARP, Ether, srp,conf
 
-def scan_network(network_cidr:str):
+def scan_network_arp(network_cidr:str):
     """
     Scans the given network to find the connected devices
     Args: network_cidr:the nw range in cidr format (eg: 192.168.1.0/24)
@@ -46,15 +46,21 @@ def get_mac_address(ip:str):
 
 # Main code
 if __name__ == "__main__":
+    # try:
+    #     network_cidr = "192.168.1.0/24"
+    #     devices = scan_network(network_cidr=network_cidr)
+    #     print(devices)
+    #     print(len(devices))
+
+    #     print(f"Devices found in the network {network_cidr}:")
+    #     for idx,device in enumerate(devices,start=1):
+    #         print(f"{idx}: IP Address: {device['IP ADDRESS']}, MAC Address: {device['MAC ADDRESS']}")
+
+    # except Exception as e:
+    #     print(str(e))
+
+
     try:
-        network_cidr = "192.168.1.0/24"
-        devices = scan_network(network_cidr=network_cidr)
-        print(devices)
-        print(len(devices))
-
-        print(f"Devices found in the network {network_cidr}:")
-        for idx,device in enumerate(devices,start=1):
-            print(f"{idx}: IP Address: {device['IP ADDRESS']}, MAC Address: {device['MAC ADDRESS']}")
-
+        print(get_mac_address('192.168.1.33'))
     except Exception as e:
         print(str(e))

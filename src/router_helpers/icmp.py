@@ -16,6 +16,7 @@ def ping(ip):
         if output.returncode == 0:
             try:
                 # Try to get the hostname of the device
+                print(socket.gethostbyaddr(ip))
                 hostname = socket.gethostbyaddr(ip)[0]
             except socket.herror:
                 hostname = "Unknown"
@@ -53,14 +54,17 @@ def scan_network(network_cidr):
     return devices
 
 # Main code
-try:
-    network_cidr = "192.168.1.0/24"  # Replace with your network range
-    print(f"Scanning network: {network_cidr}")
-    devices = scan_network(network_cidr)
-    
-    print(f"\nDevices found in the network {network_cidr}:")
-    for idx, device in enumerate(devices, start=1):
-        print(f"{idx}: IP Address: {device['IP Address']}, Hostname: {device['Hostname']}")
+if __name__ == "__main__":
+    # try:
+    #     network_cidr = "192.168.1.0/24"  # Replace with your network range
+    #     print(f"Scanning network: {network_cidr}")
+    #     devices = scan_network(network_cidr)
+        
+    #     print(f"\nDevices found in the network {network_cidr}:")
+    #     for idx, device in enumerate(devices, start=1):
+    #         print(f"{idx}: IP Address: {device['IP Address']}, Hostname: {device['Hostname']}")
 
-except Exception as e:
-    print(str(e))
+    # except Exception as e:
+    #     print(str(e))
+
+    print(ping(ip='192.168.1.33'))

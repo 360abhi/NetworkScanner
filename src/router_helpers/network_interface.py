@@ -3,7 +3,7 @@
 import psutil
 import socket
 
-def connected_network_details() -> dict:
+def network_interfaces() -> dict:
     """
     Fetches the details of the network interfaces currently up in the device.
     """
@@ -42,4 +42,5 @@ def print_network_details(network_details:dict) -> None:
             print(f"{key}: {val}")
         print()
 
-print_network_details(connected_network_details())
+if __name__ == "__main__":
+    print_network_details(network_interfaces())
